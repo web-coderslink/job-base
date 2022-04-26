@@ -1,0 +1,40 @@
+{
+  "name": "workers",
+  "version": "1.0.0",
+  "description": "job tracking app",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "npm install",
+    "install-dependencies": "npm run install-client && npm run install-server",
+    "build-client": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "server": "nodemon server.mjs --ignore client",
+    "client": "npm start --prefix client",
+    "start": "concurrently --kill-others-on-fail \" npm run server\" \" npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "express-mongo-sanitize": "^2.2.0",
+    "helmet": "^5.0.2",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.3",
+    "morgan": "^1.10.0",
+    "validator": "^13.7.0",
+    "xss-clean": "^0.1.1"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "devDependencies": {
+    "express-rate-limit": "^6.4.0",
+    "mongoose": "^6.3.1"
+  }
+}
